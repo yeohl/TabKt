@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.113" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_outside"
         android:layout_width="124dp"
         android:layout_height="66dp"
         android:text="외출 모드"
@@ -38,7 +38,7 @@
 
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_sleep"
         android:layout_width="129dp"
         android:layout_height="68dp"
         android:text="숙면 모드"
