@@ -8,37 +8,31 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import android.content.Intent
 import android.widget.Button
+import com.example.myapplication02.databinding.ActivityMainBinding
 
 //import kotlinx.android.synthetic.main.activity_main.*
 
-abstract class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        //Intent 를 활용해서 액티비티 이동하기
-        val intent = Intent(this, MainActivity::class.java)
-        //버튼 지정 약버튼
-        val imageBtn = findViewById<ImageButton>(R.id.imageButton)
-        imageBtn.setOnClickListener(this) //현재클래스의 instance를 넣어준다.
-        //클릭리스너
-        imageBtn.setOnClickListener {
-            //액티비티 이동
-            startActivity(intent)
+        setIntent()
 
-            //버튼 지정 외출버튼
-            val outButton = findViewById<Button>(R.id.button3)
-            //클릭리스너
-            imageBtn.setOnClickListener {
-                //액티비티 이동
-                startActivity(intent)
-            }
+    }
 
-
+    private fun setIntent() {
+        binding.btnOutside.setOnClickListener{
+            startActivity(Intent(this, SubActivity::class.java))
         }
+    }
+}
 
-
-        fun onClick(v: View?) {
+/* 원래 있던 함수
+fun onClick(v: View?) {
 
             //val textView = findViewById<TextView>(R.id.textView)
 
@@ -55,6 +49,4 @@ abstract class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-
-    }
-}
+ */
